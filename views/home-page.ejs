@@ -8,30 +8,32 @@
   </head>
   <body>
     <header>
-      <h2><a href="/">My Awesome App</a></h2>
+      <h1><a href="/">My Awesome App</a></h1>
       <nav>
-        <ul>
-          <li><a href="/login">Login</a></li>
-        </ul>
+        <a href="/login">Login</a>
       </nav>
     </header>
 
     <main>
-      <fieldset>
-        <legend>Create Account</legend>
-        <label for="username"><small>Username</small></label>
-        <input type="text" id="username" name="username" autocomplete="off" />
-
-        <label for="password"><small>Password</small></label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          autocomplete="off"
-        />
-        <hr />
-        <input type="submit" value="Create Account" />
-      </fieldset>
+      <form action="/register" method="POST">
+        <% errors.forEach((error) => { %>
+        <p class="notice"><%= error %></p>
+        <% }) %>
+        <fieldset>
+          <legend>Create Account</legend>
+          <label for="username"><small>Username</small></label>
+          <input type="text" id="username" name="username" autocomplete="off" />
+          <label for="password"><small>Password</small></label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="off"
+          />
+          <hr />
+          <input type="submit" value="Create Account" />
+        </fieldset>
+      </form>
     </main>
     <footer>
       <small>&copy; My Awesome App 2024</small>
